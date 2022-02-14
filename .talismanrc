@@ -1,0 +1,5 @@
+fileignoreconfig:
+- filename: src/App.js
+  checksum: faee9940887ead0363ca675a1a6c69f671d30ea3240033c336579ea0154afe66
+- filename: src/Components/ChannelList.js
+  checksum: 454bb43204f7ef2cb6194ae2d4b84a7eb56d7f266713f4b755cb689f4f78f6fc

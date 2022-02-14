@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import TextChannel from "./Components/TextChannel";
+import ChannelList from "./Components/ChannelList";
+import { useState } from "react";
+import { nanoid } from 'nanoid';
 
 function App() {
+
+  const [channels, setChannels] = useState(['general', 'study-group']);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ChannelList channels={channels} />
+      {channels.map(channel=><TextChannel name={channel} key={nanoid()}/>)}
     </div>
   );
 }
