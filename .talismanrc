@@ -1,8 +1,7 @@
 fileignoreconfig:
-- filename: src/Components/TextChannel.js
-  checksum: 5823bb145637bca5b73c5dbc2fb9e58b6919a43e20f2d1f75cdbe1cf3376c2e3
 - filename: src/App.js
   checksum: a8a0dea75a93ffa887ac12a48b4e77aa271230e31961e2f2bbcd3805697606ca
+- filename: src/Components/TextChannel.js
+  checksum: c1578f13d63d344c39b98523d6aa449cb2262681c3b4154f772b4031c9ef9945
 - filename: src/Components/ChannelList.js
-  checksum: 6038f5c90bef47d54ed93402df47b58d954e3555ba6a2b8e3931ef7f65db4dea
-
+  checksum: c27588ef93792ae8c05cd0984a8e0b5d54dc02358615b28dcd42e506620f655f

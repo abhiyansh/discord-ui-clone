@@ -22,6 +22,7 @@ function App() {
 
   return (
     <div className="App">
+      <div className="serverListContainer">Server List</div>
       <ChannelList channelList={Object.keys(channels)} toggleCurrentChannel={toggleCurrentChannel}/>
       <TextChannel channelName={currentChannel} appendMessage={appendMessage} messages={channels} />
     </div>

@@ -4,8 +4,7 @@ import {nanoid} from 'nanoid';
 function TextChannel(props) {
     const [message, setMessage] = useState('');
 
-    function onSend(e){
-        e.preventDefault();
+    function onSend(){
         if(!message) return;
         props.appendMessage(props.channelName, message);
         setMessage("");
@@ -14,8 +13,11 @@ function TextChannel(props) {
     function onChange(e){
         setMessage(e.target.value);
     }
-    console.log(props.channelName);
-    console.log(props.messages[props.channelName]);
+
+    function onKeyPress(e){
+        if(e.key=='Enter') onSend();
+    }
+
     let messageList = props.messages[props.channelName].map(msg=><li key={nanoid()}>{msg}</li>);
 
   return (
@@ -25,9 +27,8 @@ function TextChannel(props) {
             {messageList}
         </ul>
 
-        <form className='messageBox' onSubmit={onSend}>
-            <input type="text" value={message} onChange={onChange}></input>
-            <button type='submit'>Send</button>
+        <form className='messageBox'>
+            <textarea value={message} onChange={onChange} onKeyPress={onKeyPress}></textarea>
         </form>
         
     </div>

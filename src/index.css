@@ -10,16 +10,20 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 70%;
+    width: 75%;
     height: 100%;
     background-color: rgb(54,57,63);
     padding: 10px;
 }
 .channelListContainer{
-    width: 30%;
+    width: 20%;
     height: 100%;
     background-color: rgb(47,49,54);
-   
+    font-size: 1.2em;
+}
+.serverListContainer{
+    width: 5%;
+    background-color: rgb(32, 34, 37);
 }
 .App{
     display: flex;
@@ -31,6 +35,7 @@
 body{
     height: 100vh;
     color: white;
+    margin: 0;
 }
 
 .container h1{
@@ -46,14 +51,56 @@ body{
 }
 .messageBox{
     height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
 }
+.messageBox textarea{
+    width: 80%;
+}
+
+.messageBox button{
+    align-self: center;
+}
+
 .channelList li div{
     width: 100%;
     padding: 10px;
     margin: 0%;
 }
-.channelList li div:hover{
+.channelList li div:hover,
+.addTextChannelSymbol:hover {
     cursor: pointer;
     background-color: rgba(80, 83, 90, 0.7);
-   
+}
+
+.channelListTitle{
+    display: flex;
+    justify-content: space-around;
+}
+
+.channelListTitle h2{
+    padding: 10px 0;
+}
+
+.addTextChannelSymbol{
+    font-size: 1.5em;
+    margin: 20px 0;
+    padding: 5px 12px;
+    border-radius: 50%;
+}
+
+.visuallyHidden{
+    /* opacity: 0; */
+    visibility: hidden;
+}
+
+#newChannelInput.visuallyHidden{
+    cursor: default;
+    background-color: rgba(80, 83, 90, 1);
+}
+
+#newChannelInput:not(.visuallyHidden){
+    cursor: pointer;
+    background-color: rgba(80, 83, 90, 0.7);
 }
