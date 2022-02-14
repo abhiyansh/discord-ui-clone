@@ -2,29 +2,60 @@ import TextChannel from "./Components/TextChannel";
 import ChannelList from "./Components/ChannelList";
 import { useState } from "react";
 import { nanoid } from 'nanoid';
+import Server from "./Components/Server";
 
 function App() {
 
-  const [channels, setChannels] = useState({'general':['hey'],'study-group':['hi']});
+  const [servers, setServers] = useState({'TWARAN1': {'general':['hey'],'study-group':['hi']},
+                                          'TWARAN2': {'general':['hey'],'study-group':['hi'] ,'random':['hello']}
+      });
 
-  const [currentChannel, setCurrentChannel] = useState('general');
-
-  function  toggleCurrentChannel(e){
-
-    setCurrentChannel(String(e.target.textContent));
-    
+  
+  const [currentServer, setCurrentServer]=useState('TWARAN1');
+  function addChannelToServer(channelName){
+    console.log(servers);
+    let modifiedServers= servers;
+    let modifiedChannels = modifiedServers[currentServer];
+    modifiedChannels[channelName] = [];
+    setServers(modifiedServers);
+    console.log(modifiedServers);
   }
-  function appendMessage(channel, message){
-    let modifiedChannels = channels;
-    modifiedChannels[channel] = [...channels[channel], message];
-    setChannels(modifiedChannels);
+  function addMessageToChannel(message, channelName){
+    let modifiedServers= servers;
+    let modifiedChannels = modifiedServers[currentServer];
+    modifiedChannels[channelName] = [...modifiedChannels[channelName], message];   
+    setServers(modifiedServers);
   }
-
+  function toggleServer(e){
+    console.log(servers);
+    console.log(e.target.textContent);
+    setCurrentServer(String(e.target.textContent));
+  }
   return (
     <div className="App">
-      <div className="serverListContainer">Server List</div>
-      <ChannelList channelList={Object.keys(channels)} toggleCurrentChannel={toggleCurrentChannel}/>
-      <TextChannel channelName={currentChannel} appendMessage={appendMessage} messages={channels} />
+      <div className="serverListContainer" >
+        <div className='serverListTitle'>
+          <h2>ServerList</h2>
+          <div className='addServerSymbol' >+</div>
+        </div>
+        <ul className='serverList'>
+            {Object.keys(servers).map(name=><li key={nanoid()} >
+              <div onClick={toggleServer} data-value={name}>{name}</div>
+              </li>)}
+            <li>
+              <div>
+                <input  type="text" 
+                        disabled 
+                        id="newServerInput" 
+                        className='visuallyHidden' 
+                        >
+                </input>
+              </div>
+            </li>
+
+        </ul>
+      </div>
+      <Server currentServer={currentServer} servers={servers} addChannelToServer={addChannelToServer} addMessageToChannel={addMessageToChannel}/>
     </div>
   );
 }
