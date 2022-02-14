@@ -6,7 +6,9 @@ function TextChannel(props) {
 
     function onSend(){
         if(!message) return;
+        console.log(message);
         props.appendMessage(props.channelName, message);
+        
         setMessage("");
     }
 

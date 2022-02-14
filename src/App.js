@@ -2,29 +2,33 @@ import TextChannel from "./Components/TextChannel";
 import ChannelList from "./Components/ChannelList";
 import { useState } from "react";
 import { nanoid } from 'nanoid';
+import Server from "./Components/Server";
 
 function App() {
 
-  const [channels, setChannels] = useState({'general':['hey'],'study-group':['hi']});
+  const [servers, setServers] = useState({'TWARAN1': {'general':['hey'],'study-group':['hi']},
+                                          'TWARAN2': {'general':['hey'],'study-group':['hi']}
+      });
 
-  const [currentChannel, setCurrentChannel] = useState('general');
-
-  function  toggleCurrentChannel(e){
-
-    setCurrentChannel(String(e.target.textContent));
+  
+  const [currentServer, setCurrentServer]=useState('TWARAN1');
+  function addChannelToServer(channelName){
+    let modifiedServers= servers;
+    let modifiedChannels = modifiedServers[currentServer];
+    modifiedChannels[channelName] = [];
+    setServers(modifiedServers);
     
   }
-  function appendMessage(channel, message){
-    let modifiedChannels = channels;
-    modifiedChannels[channel] = [...channels[channel], message];
-    setChannels(modifiedChannels);
+  function addMessageToChannel(message, channelName){
+    let modifiedServers= servers;
+    let modifiedChannels = modifiedServers[currentServer];
+    modifiedChannels[channelName] = [...modifiedChannels[channelName], message];   
+    setServers(modifiedServers);
   }
-
   return (
     <div className="App">
-      <div className="serverListContainer">Server List</div>
-      <ChannelList channelList={Object.keys(channels)} toggleCurrentChannel={toggleCurrentChannel}/>
-      <TextChannel channelName={currentChannel} appendMessage={appendMessage} messages={channels} />
+      <div className="serverListContainer" >Server List</div>
+      <Server currentServer={currentServer} servers={servers} addChannelToServer={addChannelToServer} addMessageToChannel={addMessageToChannel}/>
     </div>
   );
 }
