@@ -6,7 +6,7 @@ function ChannelList(props) {
   return (
     <div>
         <ul>
-            {props.channels.map(name=><li key={nanoid()}>{name}</li>)}
+            {props.channelList.map(name=><li key={nanoid()}>{name}</li>)}
         </ul>
     </div>
   )

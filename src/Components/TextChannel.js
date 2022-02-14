@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import {nanoid} from 'nanoid';
 
 function TextChannel(props) {
     const [message, setMessage] = useState('');
-    const [messageList, setMessageList] = useState([]);
 
     function onSend(e){
         e.preventDefault();
         if(!message) return;
-        setMessageList(...messageList, <li>{message}</li>);
+        props.appendMessage(props.channelName, message);
         setMessage("");
     }
 
@@ -15,9 +15,11 @@ function TextChannel(props) {
         setMessage(e.target.value);
     }
 
+    let messageList = props.messages[props.channelName].map(msg=><li key={nanoid()}>{msg}</li>);
+
   return (
     <div>
-        <h1>#{props.name}</h1>
+        <h1>#{props.channelName}</h1>
         <ul>
             {messageList}
         </ul>
