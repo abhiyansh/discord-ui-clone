@@ -3,5 +3,7 @@ fileignoreconfig:
   checksum: a8a0dea75a93ffa887ac12a48b4e77aa271230e31961e2f2bbcd3805697606ca
 - filename: src/Components/TextChannel.js
   checksum: c1578f13d63d344c39b98523d6aa449cb2262681c3b4154f772b4031c9ef9945
+- filename: src/Components/Server.js
+  checksum: 23620b30e3eb1fdc28c817d7c94b3fcc2d1f6da50696982acca21ad90df83c60
 - filename: src/Components/ChannelList.js
-  checksum: c27588ef93792ae8c05cd0984a8e0b5d54dc02358615b28dcd42e506620f655f
+  checksum: 56f4c9e7c54d1a57d5d51a54b7f715fd3c50ef6f51376ddd9b2562bd1d4377e3

@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid'
 function ChannelList(props) {
 
   function addChannel(e){
+    
     const input= document.getElementById('newChannelInput');
     input.classList.toggle('visuallyHidden');
     input.removeAttribute('disabled')
