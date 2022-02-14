@@ -4,9 +4,13 @@ import { nanoid } from 'nanoid'
 function ChannelList(props) {
 
   return (
-    <div>
-        <ul>
-            {props.channelList.map(name=><li key={nanoid()}>{name}</li>)}
+    <div className='channelListContainer'>
+        <ul className='channelList'>
+            {props.channelList.map(name=><li key={nanoid()} >
+              <div onClick={props.toggleCurrentChannel} data-value={name}>{name}</div>
+              
+              
+              </li>)}
         </ul>
     </div>
   )

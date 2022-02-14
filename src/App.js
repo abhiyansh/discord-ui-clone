@@ -9,6 +9,11 @@ function App() {
 
   const [currentChannel, setCurrentChannel] = useState('general');
 
+  function  toggleCurrentChannel(e){
+
+    setCurrentChannel(String(e.target.textContent));
+    
+  }
   function appendMessage(channel, message){
     let modifiedChannels = channels;
     modifiedChannels[channel] = [...channels[channel], message];
@@ -17,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      <ChannelList channelList={Object.keys(channels)} />
+      <ChannelList channelList={Object.keys(channels)} toggleCurrentChannel={toggleCurrentChannel}/>
       <TextChannel channelName={currentChannel} appendMessage={appendMessage} messages={channels} />
     </div>
   );
