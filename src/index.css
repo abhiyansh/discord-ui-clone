@@ -1,0 +1,59 @@
+.channelList{
+    list-style: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 70%;
+    height: 100%;
+    background-color: rgb(54,57,63);
+    padding: 10px;
+}
+.channelListContainer{
+    width: 30%;
+    height: 100%;
+    background-color: rgb(47,49,54);
+   
+}
+.App{
+    display: flex;
+    height: 100%;
+}
+#root{
+    height: 100%;
+}
+body{
+    height: 100vh;
+    color: white;
+}
+
+.container h1{
+    height: 10%;
+    margin: 0%;
+    
+}
+.messageList{
+    height: 80%;
+    list-style: none;
+    padding: 0%;
+    
+}
+.messageBox{
+    height: 10%;
+}
+.channelList li div{
+    width: 100%;
+    padding: 10px;
+    margin: 0%;
+}
+.channelList li div:hover{
+    cursor: pointer;
+    background-color: rgba(80, 83, 90, 0.7);
+   
+}

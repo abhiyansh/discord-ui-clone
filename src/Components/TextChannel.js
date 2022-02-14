@@ -14,17 +14,18 @@ function TextChannel(props) {
     function onChange(e){
         setMessage(e.target.value);
     }
-
+    console.log(props.channelName);
+    console.log(props.messages[props.channelName]);
     let messageList = props.messages[props.channelName].map(msg=><li key={nanoid()}>{msg}</li>);
 
   return (
-    <div>
+    <div className='container'>
         <h1>#{props.channelName}</h1>
-        <ul>
+        <ul className='messageList'>
             {messageList}
         </ul>
 
-        <form onSubmit={onSend}>
+        <form className='messageBox' onSubmit={onSend}>
             <input type="text" value={message} onChange={onChange}></input>
             <button type='submit'>Send</button>
         </form>
