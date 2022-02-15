@@ -8,4 +8,4 @@ fileignoreconfig:
 - filename: src/Components/ServerList.js
   checksum: 69e179db07b9d69f1586df37c0de072842941f31db5d28a617019572eae686d1
 - filename: src/Components/TextChannel.js
-  checksum: aa84f95d68f4d530fb9fb836e0618b5891eec0039f95a6fe9ae746be581a598a
+  checksum: 374fd519d0771433f162e12c587fd99c26983b16bc4aed7980602855f2827fba

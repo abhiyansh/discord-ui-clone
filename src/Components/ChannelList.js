@@ -7,11 +7,9 @@ function ChannelList(props) {
 
   function addChannel(e){
     const inputDiv = document.getElementById('newChannelInputContainer');
-    inputDiv.classList.toggle('visuallyHidden');
-    
+    inputDiv.classList.toggle('visuallyHidden');   
     const input = document.getElementById('newChannelInput');
     input.removeAttribute('disabled');
-
   }
 
   function onKeyPress(e){
@@ -38,7 +36,7 @@ function ChannelList(props) {
   return (
     <div className='channelListContainer'>
       <div className='channelListTitle'>
-        <h2>{props.currentServer}</h2>
+        <h1>{props.currentServer}</h1>
         <div className='addTextChannelSymbol' onClick={addChannel}>+</div>
       </div>
       <ul className='channelList'>
@@ -54,7 +52,6 @@ function ChannelList(props) {
               </input>
             </div>
           </li>
-
       </ul>
     </div>
   )
