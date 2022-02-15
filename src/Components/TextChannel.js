@@ -20,10 +20,10 @@ function TextChannel(props) {
         if(e.key=='Enter') onSend();
     }
 
-    let messageList = props.messages[props.channelName].map(msg=><li key={nanoid()}>{msg}</li>);
+    let messageList = props.servers[props.currentServer][props.channelName].map(msg=><li key={nanoid()}>{msg}</li>);
 
   return (
-    <div className='container'>
+    <div className='textChannelContainer'>
         <h1>#{props.channelName}</h1>
         <ul className='messageList'>
             {messageList}

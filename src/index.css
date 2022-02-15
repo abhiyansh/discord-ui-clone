@@ -1,12 +1,15 @@
-.channelList{
+ul{
     list-style: none;
+}
+
+.channelList{
     color: white;
     display: flex;
     flex-direction: column;
     gap: 5px;
 
 }
-.container{
+.textChannelContainer{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -43,7 +46,7 @@ body{
     margin: 0;
 }
 
-.container h1{
+.textChannelContainer h1{
     height: 10%;
     margin: 0%;
     
@@ -95,17 +98,8 @@ body{
     border-radius: 50%;
 }
 
-.visuallyHidden{
-    /* opacity: 0; */
-    visibility: hidden;
-}
-
-#newChannelInput.visuallyHidden{
+#newChannelInputContainer.visuallyHidden,
+#newServerInputContainer.visuallyHidden {
     cursor: default;
-    background-color: rgba(80, 83, 90, 1);
-}
-
-#newChannelInput:not(.visuallyHidden){
-    cursor: pointer;
-    background-color: rgba(80, 83, 90, 0.7);
+    visibility: hidden;
 }

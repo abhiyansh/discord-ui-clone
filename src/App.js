@@ -3,6 +3,7 @@ import ChannelList from "./Components/ChannelList";
 import { useState } from "react";
 import { nanoid } from 'nanoid';
 import Server from "./Components/Server";
+import ServerList from "./Components/ServerList"
 
 function App() {
 
@@ -13,17 +14,13 @@ function App() {
   
   const [currentServer, setCurrentServer]=useState('TWARAN1');
   function addChannelToServer(channelName){
-    console.log(servers);
     let modifiedServers= servers;
-    let modifiedChannels = modifiedServers[currentServer];
-    modifiedChannels[channelName] = [];
+    modifiedServers[currentServer][channelName] = [];
     setServers(modifiedServers);
-    console.log(modifiedServers);
   }
   function addMessageToChannel(message, channelName){
     let modifiedServers= servers;
-    let modifiedChannels = modifiedServers[currentServer];
-    modifiedChannels[channelName] = [...modifiedChannels[channelName], message];   
+    modifiedServers[currentServer][channelName] = [...modifiedServers[currentServer][channelName], message];   
     setServers(modifiedServers);
   }
   function toggleServer(e){
@@ -31,30 +28,14 @@ function App() {
     console.log(e.target.textContent);
     setCurrentServer(String(e.target.textContent));
   }
+  function addNewServer(serverName){
+    let modifiedServers = servers;
+    modifiedServers[serverName] = {'general':[],'study-group':[]};
+    setServers(modifiedServers);
+  }
   return (
     <div className="App">
-      <div className="serverListContainer" >
-        <div className='serverListTitle'>
-          <h2>ServerList</h2>
-          <div className='addServerSymbol' >+</div>
-        </div>
-        <ul className='serverList'>
-            {Object.keys(servers).map(name=><li key={nanoid()} >
-              <div onClick={toggleServer} data-value={name}>{name}</div>
-              </li>)}
-            <li>
-              <div>
-                <input  type="text" 
-                        disabled 
-                        id="newServerInput" 
-                        className='visuallyHidden' 
-                        >
-                </input>
-              </div>
-            </li>
-
-        </ul>
-      </div>
+      <ServerList servers={servers} toggleServer={toggleServer} addNewServer={addNewServer}/>
       <Server currentServer={currentServer} servers={servers} addChannelToServer={addChannelToServer} addMessageToChannel={addMessageToChannel}/>
     </div>
   );

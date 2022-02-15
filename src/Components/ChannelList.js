@@ -4,10 +4,11 @@ import { nanoid } from 'nanoid'
 function ChannelList(props) {
 
   function addChannel(e){
+    const inputDiv = document.getElementById('newChannelInputContainer');
+    inputDiv.classList.toggle('visuallyHidden');
     
-    const input= document.getElementById('newChannelInput');
-    input.classList.toggle('visuallyHidden');
-    input.removeAttribute('disabled')
+    const input = document.getElementById('newChannelInput');
+    input.removeAttribute('disabled');
 
   }
 
@@ -16,8 +17,8 @@ function ChannelList(props) {
     if(e.key=='Enter') {
       props.addNewChannel(newChannelName);
       setNewChannelName(""); 
-      const input= document.getElementById('newChannelInput');
-      input.classList.toggle('visuallyHidden');
+      const inputDiv = document.getElementById('newChannelInputContainer');
+      inputDiv.classList.toggle('visuallyHidden');
     }
   }
   function onNewChannel(e){
@@ -27,19 +28,19 @@ function ChannelList(props) {
   return (
     <div className='channelListContainer'>
       <div className='channelListTitle'>
-        <h2>#Text-Channels</h2>
+        <h2>{props.currentServer}</h2>
+        {/* <h2>#Text-Channels</h2> */}
         <div className='addTextChannelSymbol' onClick={addChannel}>+</div>
       </div>
       <ul className='channelList'>
-          {props.channelList.map(name=><li key={nanoid()} >
+          {Object.keys(props.servers[props.currentServer]).map(name=><li key={nanoid()} >
             <div onClick={props.toggleCurrentChannel} data-value={name}>{name}</div>
             </li>)}
           <li>
-            <div>
+            <div id="newChannelInputContainer" className='visuallyHidden'>
               <input  type="text" 
-                      disabled 
-                      id="newChannelInput" 
-                      className='visuallyHidden' 
+                      id="newChannelInput"
+                      disabled
                       onChange={onNewChannel} 
                       onKeyPress={onKeyPress} 
                       value={newChannelName}>
