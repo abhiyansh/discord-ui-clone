@@ -6,6 +6,6 @@ fileignoreconfig:
 - filename: src/Components/TextChannel.js
   checksum: e14644fd17bc6257df467c0bc0a8f9226d2ab83025a042283680d2c2739e1d62
 - filename: src/Components/ChannelList.js
-  checksum: 30b172e8352f2c2e0eacb90a0b9dee06f3ed138564e6b78bdcba703e64a1b6aa
+  checksum: 5e9cdd1cc5edd7a5dd805b79cecd28f5f48397ed8d6ee0585e53324758c425c1
 - filename: src/Components/ServerList.js
-  checksum: c630c21adb8f9b376edb78b40a65e77eeda6f3bec2f87a81369285ca1cb81f55
+  checksum: 69e179db07b9d69f1586df37c0de072842941f31db5d28a617019572eae686d1

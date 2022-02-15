@@ -7,10 +7,8 @@ function Server(props) {
 
   const [currentChannel, setCurrentChannel] = useState('general');
 
-  function  toggleCurrentChannel(e){
-
+  function toggleCurrentChannel(e){
     setCurrentChannel(String(e.target.textContent));
-    
   }
 
   function addNewChannel(channelName)
@@ -18,8 +16,8 @@ function Server(props) {
     props.addChannelToServer(channelName);
     setCurrentChannel(channelName);
   }
+  
   function appendMessage(channel, message){
-      console.log(channel,message);
     props.addMessageToChannel(message,channel);
   }
 

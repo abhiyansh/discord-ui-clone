@@ -25,6 +25,12 @@ function ServerList(props){
         setNewServerName(e.target.value);
       }
 
+    let serverList = Object.keys(props.servers).map(name =>
+        <li key={nanoid()} >
+            <div onClick={props.toggleServer} data-value={name}>{name}</div>
+        </li>
+        );
+
     return (
         <div className="serverListContainer" >
         <div className='serverListTitle'>
@@ -32,9 +38,7 @@ function ServerList(props){
           <div className='addServerSymbol' onClick={addServer}>+</div>
         </div>
         <ul className='serverList'>
-            {Object.keys(props.servers).map(name=><li key={nanoid()} >
-              <div onClick={props.toggleServer} data-value={name}>{name}</div>
-              </li>)}
+            {serverList}
             <li>
               <div id="newServerInputContainer" className='visuallyHidden'>
                 <input  type="text" 
