@@ -1,5 +1,10 @@
+* {
+    box-sizing: border-box;
+}
+
 ul{
     list-style: none;
+    padding: 0;
 }
 
 .channelList{
@@ -7,7 +12,6 @@ ul{
     display: flex;
     flex-direction: column;
     gap: 5px;
-
 }
 .textChannelContainer{
     display: flex;
@@ -58,40 +62,59 @@ body{
     
 }
 .messageBox{
-    height: 10%;
+    height: 8%;
     width: 100%;
     display: flex;
     justify-content: space-around;
 }
 .messageBox textarea{
     width: 80%;
+    background-color: rgb(66, 68, 74);
+    border-radius: 12px;
+    border: none;
+    resize: none;
+    padding: 8px;
+    color: inherit;
+    font-size: 1.2em;
+}
+
+.messageBox textarea:focus-visible{
+    outline: none;
 }
 
 .messageBox button{
     align-self: center;
 }
 
-.channelList li div{
+.channelList li div,
+.serverList li div {
     width: 100%;
     padding: 10px;
     margin: 0%;
 }
 .channelList li div:hover,
-.addTextChannelSymbol:hover {
+.addTextChannelSymbol:hover,
+.serverList li div:hover,
+.addServerSymbol:hover,
+.channelList li div.activeChannel,
+.serverList li div.activeServer {
     cursor: pointer;
     background-color: rgba(80, 83, 90, 0.7);
 }
 
-.channelListTitle{
+.channelListTitle,
+.serverListTitle {
     display: flex;
     justify-content: space-around;
 }
 
-.channelListTitle h2{
+.channelListTitle h2,
+.serverListTitle h2 {
     padding: 10px 0;
 }
 
-.addTextChannelSymbol{
+.addTextChannelSymbol,
+.addServerSymbol {
     font-size: 1.5em;
     margin: 20px 0;
     padding: 5px 12px;
@@ -102,4 +125,9 @@ body{
 #newServerInputContainer.visuallyHidden {
     cursor: default;
     visibility: hidden;
+}
+
+.poundSymbol{
+    font-size: 1.2em;
+    color: grey;
 }

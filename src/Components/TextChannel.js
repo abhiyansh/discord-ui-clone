@@ -29,7 +29,7 @@ function TextChannel(props) {
         </ul>
 
         <form className='messageBox'>
-            <textarea value={message} onChange={onChange} onKeyPress={onKeyPress}></textarea>
+            <textarea placeholder={`Message ${props.currentServer}`} value={message} onChange={onChange} onKeyPress={onKeyPress}></textarea>
         </form>
         
     </div>

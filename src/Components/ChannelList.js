@@ -29,7 +29,9 @@ function ChannelList(props) {
 
   let channelList = Object.keys(props.servers[props.currentServer]).map(name=>
     <li key={nanoid()} >
-      <div onClick={props.toggleCurrentChannel} data-value={name}>{name}</div>
+      <div onClick={props.toggleCurrentChannel} value={name} className={(name==props.channelName)?"activeChannel":""} >
+        <span className='poundSymbol'>#</span> {name}
+      </div>
     </li>
     );
 

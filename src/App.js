@@ -37,7 +37,7 @@ function App() {
   
   return (
     <div className="App">
-      <ServerList servers={servers} toggleServer={toggleServer} addNewServer={addNewServer}/>
+      <ServerList servers={servers} currentServer={currentServer} toggleServer={toggleServer} addNewServer={addNewServer}/>
       <Server currentServer={currentServer} servers={servers} addChannelToServer={addChannelToServer} addMessageToChannel={addMessageToChannel}/>
     </div>
   );

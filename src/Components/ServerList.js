@@ -27,14 +27,14 @@ function ServerList(props){
 
     let serverList = Object.keys(props.servers).map(name =>
         <li key={nanoid()} >
-            <div onClick={props.toggleServer} data-value={name}>{name}</div>
+            <div onClick={props.toggleServer} data-value={name} className={(name==props.currentServer)?"activeServer":""} >{name}</div>
         </li>
         );
 
     return (
         <div className="serverListContainer" >
         <div className='serverListTitle'>
-          <h2>ServerList</h2>
+          <h2>Servers</h2>
           <div className='addServerSymbol' onClick={addServer}>+</div>
         </div>
         <ul className='serverList'>

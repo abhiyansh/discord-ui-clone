@@ -8,7 +8,7 @@ function Server(props) {
   const [currentChannel, setCurrentChannel] = useState('general');
 
   function toggleCurrentChannel(e){
-    setCurrentChannel(String(e.target.textContent));
+    setCurrentChannel(e.target.getAttribute('value'));
   }
 
   function addNewChannel(channelName)
@@ -23,7 +23,7 @@ function Server(props) {
 
   return (
     <div className="Server">
-      <ChannelList servers={props.servers} currentServer={props.currentServer} toggleCurrentChannel={toggleCurrentChannel} addNewChannel={addNewChannel}/>
+      <ChannelList channelName={currentChannel} servers={props.servers} currentServer={props.currentServer} toggleCurrentChannel={toggleCurrentChannel} addNewChannel={addNewChannel}/>
       <TextChannel channelName={currentChannel} servers={props.servers} currentServer={props.currentServer} appendMessage={appendMessage} />
     </div>
   );
