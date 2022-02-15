@@ -5,8 +5,7 @@ function MessageCard(props) {
   return (
     <div className='messageCardContainer'>
         <div> 
-            <img className='userIcon' src={discordIconYellow}></img>
-            
+            <img className='userIcon' src={discordIconYellow} alt='Discord User Icon'></img>           
         </div>
         <div className='textPanel'>
             <div className='userName'>{props.user}</div>

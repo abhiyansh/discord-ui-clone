@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {nanoid} from 'nanoid';
 import MessageCard from './MessageCard.js'
+
 function TextChannel(props) {
     const [message, setMessage] = useState('');
 
@@ -20,8 +21,7 @@ function TextChannel(props) {
             onSend();
             if(e.preventDefault) e.preventDefault();
             return false;
-        }
-        
+        }        
     }
 
     let messageList = props.servers[props.currentServer][props.channelName].map(msg=><li key={nanoid()}>
@@ -34,11 +34,14 @@ function TextChannel(props) {
         <ul className='messageList'>
             {messageList}
         </ul>
-
         <form className='messageBox'>
-            <textarea placeholder={`Message ${props.currentServer}`} value={message} onChange={onChange} onKeyPress={onKeyPress}></textarea>
-        </form>
-        
+            <textarea 
+                placeholder={`Message ${props.currentServer}`} 
+                value={message} 
+                onChange={onChange} 
+                onKeyPress={onKeyPress}>
+            </textarea>
+        </form>        
     </div>
   )
 }

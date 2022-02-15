@@ -5,8 +5,7 @@ function ServerList(props){
 
     function addServer(e){
         const inputDiv = document.getElementById('newServerInputContainer');
-        inputDiv.classList.toggle('visuallyHidden');
-        
+        inputDiv.classList.toggle('visuallyHidden');      
         const input = document.getElementById('newServerInput');
         input.removeAttribute('disabled');
     }
@@ -28,7 +27,6 @@ function ServerList(props){
     let serverList = Object.keys(props.servers).map(name =>
         <li key={nanoid()} >
             <div onClick={props.toggleServer} data-value={name} className={(name==props.currentServer)?"activeServer serverName":"serverName"} >
-
               {name.length>1?name.slice(0,2):name}
             </div>
         </li>
@@ -38,7 +36,7 @@ function ServerList(props){
         <div className="serverListContainer" >        
         <ul className='serverList'>
           <li>
-                <img id="discordSymbol" src={discordIcon}></img>
+              <img id="discordSymbol" src={discordIcon} alt='Discord Icon'></img>
           </li>
           <li><div id='addServerSymbol' onClick={addServer}>+</div></li>
             {serverList}
@@ -51,11 +49,10 @@ function ServerList(props){
                         value={newServerName}
                         onKeyPress={onKeyPress}
                         onChange={onNewServer}
-                        >
+                >
                 </input>
               </div>
             </li>
-
         </ul>
       </div>
     );

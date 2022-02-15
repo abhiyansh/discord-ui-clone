@@ -7,11 +7,9 @@ function ChannelList(props) {
 
   function addChannel(e){
     const inputDiv = document.getElementById('newChannelInputContainer');
-    inputDiv.classList.toggle('visuallyHidden');
-    
+    inputDiv.classList.toggle('visuallyHidden');   
     const input = document.getElementById('newChannelInput');
     input.removeAttribute('disabled');
-
   }
 
   function onKeyPress(e){
@@ -54,7 +52,6 @@ function ChannelList(props) {
               </input>
             </div>
           </li>
-
       </ul>
     </div>
   )

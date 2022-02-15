@@ -1,11 +1,9 @@
 import TextChannel from "./TextChannel";
 import ChannelList from "./ChannelList";
 import { useState } from "react";
-import { nanoid } from 'nanoid';
 import UserCard from './UserCard'
 
 function Server(props) {
-
   const [currentChannel, setCurrentChannel] = useState('general');
 
   function toggleCurrentChannel(e){
@@ -27,8 +25,7 @@ function Server(props) {
       <div className="channelListPanel">
       <ChannelList channelName={currentChannel} servers={props.servers} currentServer={props.currentServer} toggleCurrentChannel={toggleCurrentChannel} addNewChannel={addNewChannel}/>
       <UserCard user={props.user} userId={props.userId}/>
-      </div>
-      
+      </div>     
       <TextChannel user={props.user} channelName={currentChannel} servers={props.servers} currentServer={props.currentServer} appendMessage={appendMessage} />
     </div>
   );

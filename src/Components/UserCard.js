@@ -5,7 +5,7 @@ function UserCard(props) {
 
   return (
     <div className='userCardContainer'>
-        <img className='userIcon' src={discordIconYellow}></img>
+        <img className='userIcon' src={discordIconYellow} alt='Discord User Icon'></img>
         <div className='userName'> {props.user}
             <div className='userId'>#{props.userId}</div>
         </div>    
