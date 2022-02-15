@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {nanoid} from 'nanoid';
-
+import MessageCard from './MessageCard.js'
 function TextChannel(props) {
     const [message, setMessage] = useState('');
 
@@ -16,14 +16,21 @@ function TextChannel(props) {
     }
 
     function onKeyPress(e){
-        if(e.key=='Enter') onSend();
+        if(e.key=='Enter') {   
+            onSend();
+            if(e.preventDefault) e.preventDefault();
+            return false;
+        }
+        
     }
 
-    let messageList = props.servers[props.currentServer][props.channelName].map(msg=><li key={nanoid()}>{msg}</li>);
+    let messageList = props.servers[props.currentServer][props.channelName].map(msg=><li key={nanoid()}>
+        <MessageCard msg={msg} user={props.user}/>
+        </li>);
 
   return (
     <div className='textChannelContainer'>
-        <h1>#{props.channelName}</h1>
+        <h3>#{props.channelName}</h3>
         <ul className='messageList'>
             {messageList}
         </ul>

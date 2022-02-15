@@ -21,13 +21,14 @@ ul{
     width: 80%;
     height: 100%;
     background-color: rgb(54,57,63);
-    padding: 30px;
+    padding: 10px 20px;
 }
 .channelListContainer{
     width: 175px;
     height: 100%;
     background-color: rgb(47,49,54);
-    font-size: 1.2em;
+    font-size: 16px;
+    font-family: inherit;
     padding: 10px;
 }
 .serverListContainer{
@@ -51,6 +52,8 @@ body{
     height: 100vh;
     color: white;
     margin: 0;
+    font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
 }
 
 .textChannelContainer h1{
@@ -78,15 +81,13 @@ body{
     resize: none;
     padding: 8px;
     color: inherit;
-    font-size: 1.2em;
+    font-size: inherit;
+    font-family: inherit;
+    overflow: hidden;
 }
 
 .messageBox textarea:focus-visible{
     outline: none;
-}
-
-.messageBox button{
-    align-self: center;
 }
 
 .channelList li div{
@@ -121,18 +122,11 @@ body{
     display: flex;
     justify-content: space-around;
 }
-
-.channelListTitle h2{
-    padding: 10px 0px 5px 0;
-    font-size: 1em;
-    margin-top: 22px;
-}
-
 .addTextChannelSymbol
 {
     font-size: 1.5em;
-    margin: 20px 0;
-    padding: 5px 12px;
+    margin: 10px 0;
+    padding: 0px 12px;
     border-radius: 50%;
 }
 #addServerSymbol {
@@ -173,4 +167,60 @@ body{
 }
 #discordSymbol:hover{
     cursor: pointer;
+}
+.channelListPanel{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.userCardContainer{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    height: 50px;
+    background-color: rgb(41, 43, 47);
+    padding: 5px;
+    gap: 10px;
+}
+.userIcon{
+    height: 40px;
+    width: auto;
+    border-radius: 50%;
+}
+.messageCardContainer{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+.textPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.userName{
+    font-weight: bold;
+}
+.textChannelContainer h3{
+    font-family: Ginto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+}
+.channelListTitle h1{
+    font-size: 15px;
+    font-family: Ginto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 5px 0px 5px 0;
+    margin-top: 12px;
+}
+.userCardContainer .userName{
+    display: flex;
+    flex-direction: column;
+} 
+.userId{
+    font-size: 12px;
+    font-family: inherit;
+    color: #b9bbbe;
+    font-weight: normal;
+}
+.userCardContainer .userIcon{
+    height: 30px;
 }

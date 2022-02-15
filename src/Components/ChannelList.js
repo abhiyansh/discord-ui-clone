@@ -38,7 +38,7 @@ function ChannelList(props) {
   return (
     <div className='channelListContainer'>
       <div className='channelListTitle'>
-        <h2>{props.currentServer}</h2>
+        <h1>{props.currentServer}</h1>
         <div className='addTextChannelSymbol' onClick={addChannel}>+</div>
       </div>
       <ul className='channelList'>

@@ -2,6 +2,8 @@ import { useState } from "react";
 import Server from "./Components/Server";
 import ServerList from "./Components/ServerList"
 
+
+
 function App() {
 
   const [servers, setServers] = useState(
@@ -9,7 +11,8 @@ function App() {
       'TWARAN1': {'general':['hey'],'study-group':['hi']},
       'NEEV': {'general':['hey'],'study-group':['hi'] ,'random':['hello']}
     });
-
+  const [user,setUser]= useState('XYZ');
+  const [userId, setUserId]= useState('1010');
   
   const [currentServer, setCurrentServer]=useState('TWARAN1');
   
@@ -37,8 +40,9 @@ function App() {
   
   return (
     <div className="App">
-      <ServerList servers={servers} currentServer={currentServer} toggleServer={toggleServer} addNewServer={addNewServer}/>
-      <Server currentServer={currentServer} servers={servers} addChannelToServer={addChannelToServer} addMessageToChannel={addMessageToChannel}/>
+        <ServerList servers={servers} currentServer={currentServer} toggleServer={toggleServer} addNewServer={addNewServer}/>
+        <Server user={user} userId={userId} currentServer={currentServer} servers={servers} addChannelToServer={addChannelToServer} addMessageToChannel={addMessageToChannel}/>
+
     </div>
   );
 }
