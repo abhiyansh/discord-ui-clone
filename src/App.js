@@ -7,7 +7,7 @@ function App() {
   const [servers, setServers] = useState(
     {
       'TWARAN1': {'general':['hey'],'study-group':['hi']},
-      'TWARAN2': {'general':['hey'],'study-group':['hi'] ,'random':['hello']}
+      'NEEV': {'general':['hey'],'study-group':['hi'] ,'random':['hello']}
     });
 
   
@@ -26,7 +26,7 @@ function App() {
   }
   
   function toggleServer(e){
-    setCurrentServer(String(e.target.textContent));
+    setCurrentServer(e.target.getAttribute("data-value"));
   }
   
   function addNewServer(serverName){

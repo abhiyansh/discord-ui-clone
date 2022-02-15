@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 import { useState } from 'react';
-
+import discordIcon from "../icons/discord_logo.svg"
 function ServerList(props){
 
     function addServer(e){
@@ -27,17 +27,20 @@ function ServerList(props){
 
     let serverList = Object.keys(props.servers).map(name =>
         <li key={nanoid()} >
-            <div onClick={props.toggleServer} data-value={name} className={(name==props.currentServer)?"activeServer":""} >{name}</div>
+            <div onClick={props.toggleServer} data-value={name} className={(name==props.currentServer)?"activeServer serverName":"serverName"} >
+
+              {name.length>1?name.slice(0,2):name}
+            </div>
         </li>
         );
 
     return (
-        <div className="serverListContainer" >
-        <div className='serverListTitle'>
-          <h2>Servers</h2>
-          <div className='addServerSymbol' onClick={addServer}>+</div>
-        </div>
+        <div className="serverListContainer" >        
         <ul className='serverList'>
+          <li>
+                <img id="discordSymbol" src={discordIcon}></img>
+          </li>
+          <li><div id='addServerSymbol' onClick={addServer}>+</div></li>
             {serverList}
             <li>
               <div id="newServerInputContainer" className='visuallyHidden'>
